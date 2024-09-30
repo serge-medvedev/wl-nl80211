@@ -9,6 +9,7 @@ use netlink_packet_utils::{
 use crate::attr::Nl80211Attr;
 
 const NL80211_CMD_GET_WIPHY: u8 = 1;
+const NL80211_CMD_SET_WIPHY: u8 = 2;
 const NL80211_CMD_NEW_WIPHY: u8 = 3;
 const NL80211_CMD_GET_INTERFACE: u8 = 5;
 const NL80211_CMD_NEW_INTERFACE: u8 = 7;
@@ -24,6 +25,7 @@ pub enum Nl80211Cmd {
     StationGet,
     StationNew,
     WiphyGet,
+    WiphySet,
     WiphyNew,
     ScanGet,
 }
@@ -36,6 +38,7 @@ impl From<Nl80211Cmd> for u8 {
             Nl80211Cmd::StationGet => NL80211_CMD_GET_STATION,
             Nl80211Cmd::StationNew => NL80211_CMD_NEW_STATION,
             Nl80211Cmd::WiphyGet => NL80211_CMD_GET_WIPHY,
+            Nl80211Cmd::WiphySet => NL80211_CMD_SET_WIPHY,
             Nl80211Cmd::WiphyNew => NL80211_CMD_NEW_WIPHY,
             Nl80211Cmd::ScanGet => NL80211_CMD_GET_SCAN,
         }
